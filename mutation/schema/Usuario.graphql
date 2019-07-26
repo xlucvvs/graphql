@@ -1,9 +1,3 @@
-# Schema com os dados do nosso Perfil
-type Perfil {
-    id: Int
-    nome: String
-}
-
 # Schema com os tipos de Status que um usuário pode conter
 enum UsuarioStatus {
     ATIVO

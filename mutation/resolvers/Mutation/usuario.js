@@ -1,4 +1,4 @@
-const { usuarios, proximoId } =  require('../data/db')
+const { usuarios, proximoId } =  require('../../data/db')
 
 // Função para filtrar o Usuario de acordo com um parametro passado, podendo ser, email ou id.
 function IndiceUsuario(filtro) {
@@ -55,9 +55,9 @@ module.exports = {
         return excluidos ? excluidos[0] : null
     }, 
     // Resolver para Alterar o Usuário
-    alterarUsuario(_, args){
-        const i = usuarios
-            .findIndex(u => u.id === args.id)
+    alterarUsuario(_, { filtro, dados }){
+
+        const i = IndiceUsuario(filtro)
         
         if ( i < 0) return null
 
@@ -73,10 +73,12 @@ module.exports = {
         return usuario
         */ 
 
-        // Segunda fomrma de realizar as alterações
-        usuarios[i].nome = args.nome
-        usuarios[i].email = args.email
-        usuarios[i].idade = args.idade
+        // Segunda forma de realizar as alterações
+        usuarios[i].nome = dados.nome
+        usuarios[i].email = dados.email
+        if (dados.idade) {
+            usuarios[i].idade = dados.idade
+        }
 
         return usuarios[i]
     }

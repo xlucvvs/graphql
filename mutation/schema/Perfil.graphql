@@ -1,0 +1,17 @@
+# Schema com os dados do nosso Perfil
+type Perfil {
+    id: Int
+    nome: String
+}
+
+# Criamos um Input com um padrão de parametros a serem passados para uma query
+# ou resolver, esse UsuarioInput é chamado no Schema Mutation.graphql
+input PerfilInput {
+    id: Int
+    nome: String
+}
+
+input PerfilFiltro {
+    id: Int
+    nome: String
+}
