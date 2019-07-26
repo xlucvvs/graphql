@@ -1,19 +1,35 @@
+# Schema com os dados do nosso Perfil
 type Perfil {
     id: Int
     nome: String
 }
 
+# Schema com os tipos de Status que um usuário pode conter
 enum UsuarioStatus {
     ATIVO
     INATIVO
     BLOQUEADO
 }
 
+# Schema com os dados do nosso Usuario
 type Usuario {
     id: Int
     nome: String!
     email: String!
     idade: Int
-    perfil: Perfil
+    perfil: Perfil # Usuário contem um perfil e o objeto perfil é do Tipo Perfil
     status: UsuarioStatus
+}
+
+# Criamos um Input com um padrão de parametros a serem passados para uma query
+# ou resolver, esse UsuarioInput é chamado no Schema Mutation.graphql
+input UsuarioInput {
+    nome: String
+    email: String
+    idade: Int
+}
+
+input UsuarioFiltro {
+    id: Int
+    email: String
 }

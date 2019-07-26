@@ -1,0 +1,20 @@
+# Arquivo onde referenciamos as nossas mutations
+type Mutation {
+    # Mutation para criar um novo Usuario, passamos os dados e retornamos um novo Usuário(Obrigatório!)
+    novoUsuario(
+        dados: UsuarioInput!
+    ): Usuario!
+    
+    # Mutation para excluir um usuário, passamos o ID e retornamos o usuário excluído.
+    excluirUsuario(
+        filtro: UsuarioFiltro!
+    ): Usuario
+
+    # Mutation para alterar um usuário, passamos um id obrigatoriamente! e retornamos o usuario com os dados modificados
+    alterarUsuario(
+        id: Int!,
+        nome: String,
+        email: String,
+        idade: Int
+    ): Usuario
+}
