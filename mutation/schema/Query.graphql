@@ -1,11 +1,7 @@
-# Aqui é por onde nossa API se iniciará, aqui instanciamos todos as requisições que poderiam ser feitas.
+# Pontos de entrada da sua API!
 type Query {
     usuarios: [Usuario]
-    usuario(id: Int): Usuario # Acessamos um usuario por meio de sua ID
-    # Exemplo 2
-    # const i = IndiceUsuario(filtro)
-    # if (i < 0 ) return null
-    # return usuarios[i]
+    usuario(id: Int): Usuario
     perfis: [Perfil]
-    perfil(id: Int): Perfil # Também acessamos o perfil por meio de um ID
+    perfil(id: Int): Perfil
 }
